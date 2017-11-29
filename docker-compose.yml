@@ -10,9 +10,13 @@ services:
       - '8989:80'
     links:
       - php
+    restart: always
+    depends_on:
+      - php
   php:
     image: php:7.1-fpm
     volumes:
       - ./app:/app
       - ./logs:/logs
+    restart: always
 
