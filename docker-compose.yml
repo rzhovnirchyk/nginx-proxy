@@ -3,20 +3,7 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - ./app:/app
-      - ./logs:/logs
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
-      - '8989:80'
-    links:
-      - php
+      - '80:80'
     restart: always
-    depends_on:
-      - php
-  php:
-    image: php:7.1-fpm
-    volumes:
-      - ./app:/app
-      - ./logs:/logs
-    restart: always
-
